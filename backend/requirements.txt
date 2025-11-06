@@ -1,0 +1,8 @@
+flask
+flask-cors
+psycopg2-binary
+pdfplumber
+python-docx
+spacy
+python-magic
+Werkzeug

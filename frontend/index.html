@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Automated Resume Parser</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <header class="topbar">
+      <h1>📄 Automated Resume Parser</h1>
+      <div class="toggles">
+        <label class="switch">
+          <input id="themeToggle" type="checkbox">
+          <span class="slider"></span>
+        </label>
+      </div>
+    </header>
+
+    <p class="subtitle">Upload a PDF or DOCX. Preview parsed info and original text.</p>
+
+    <div class="upload-section">
+      <input type="file" id="resumeFile" accept=".pdf,.docx" />
+      <button id="uploadBtn">Upload & Parse</button>
+    </div>
+
+    <div id="loading" class="hidden">⏳ Parsing resume...</div>
+
+    <div class="result" id="resultContainer"></div>
+
+    <details class="preview-panel" id="previewPanel">
+      <summary>📄 Resume Text Preview</summary>
+      <pre id="textPreview">No preview yet.</pre>
+    </details>
+
+    <hr />
+    <h2>🔍 Search Candidates</h2>
+    <div class="search-row">
+      <input type="text" id="searchQuery" placeholder="Enter name or skill..." />
+      <button id="searchBtn">Search</button>
+    </div>
+
+    <div id="searchResults"></div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
