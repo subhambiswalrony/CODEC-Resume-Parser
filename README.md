@@ -10,6 +10,30 @@
 - PostgreSQL
 - (Optional) virtualenv
 
+## 📁 Project Structure
+```
+RESUME-PARSER/
+│
+├── backend/
+│   ├── __pycache__/                  # Auto-generated Python cache files
+│   │
+│   ├── uploads/                      # Folder to store uploaded resume files temporarily
+│   │
+│   ├── app.py                        # Main Flask backend application (API endpoints)
+│   ├── db.py                         # Handles PostgreSQL database connection and queries
+│   ├── parser.py                     # Core logic for parsing resumes (text extraction & processing)
+│   ├── requirements.txt              # List of Python dependencies for backend
+│   └── schema.sql                    # SQL schema for creating required database tables
+│
+├── frontend/
+│   ├── index.html                    # Main UI for uploading resumes
+│   ├── script.js                     # Handles frontend logic and API requests
+│   └── style.css                     # Styling for the frontend interface
+│
+└── README.md                         # Documentation and setup guide
+```
+
+
 ## Setup
 1. Create a Postgres DB and run `backend/schema.sql` to create tables.
 2. From the `backend/` folder, install Python deps:
@@ -31,3 +55,12 @@
 - The spaCy model (`en_core_web_sm`) must be downloaded separately.
 - For production, use connection pooling and a proper WSGI server (gunicorn/uvicorn).
 - Legacy `.doc` files are not supported by python-docx; convert to `.docx` first.
+
+## 📄 License
+
+This project is created for educational purposes as part of Codec Technologies' training program.
+
+## 🙏 Credits
+
+Developed as part of the AI project at Codec Technologies.
+Developed by Subham Biswal ❤️.
