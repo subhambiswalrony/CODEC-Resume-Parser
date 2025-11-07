@@ -4,16 +4,12 @@ from flask_cors import CORS
 import psycopg2
 from psycopg2.extras import RealDictCursor
 from parser import parse_resume
-
-DB_URL = os.environ.get("DATABASE_URL", "postgresql://user:pass@localhost:5432/resumes")
+from db import get_conn, init_db
 
 app = Flask(__name__, static_folder='../frontend', static_url_path='')
 CORS(app)
 UPLOAD_FOLDER = "uploads"
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)
-
-def get_conn():
-    return psycopg2.connect(DB_URL)
 
 @app.route("/upload", methods=["POST"])
 def upload_resume():
@@ -83,4 +79,9 @@ def static_proxy(path):
     return send_from_directory('../frontend', path)
 
 if __name__ == "__main__":
+    # initialize DB (creates tables if they do not exist)
+    try:
+        init_db()
+    except Exception as e:
+        print("DB init error:", e)
     app.run(debug=True, port=5000)
