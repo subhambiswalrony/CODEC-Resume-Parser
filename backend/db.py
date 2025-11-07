@@ -1,7 +1,7 @@
 import os
 import psycopg2
 
-DB_URL = os.environ.get("DATABASE_URL", "postgresql://postgres:postgreSQLn%40nrony0911@localhost:5432/resume_parser_DB")
+DB_URL = os.environ.get("DATABASE_URL", "postgresql://username:password@localhost:5432/resume_parser_DB")
 
 
 def get_conn():
